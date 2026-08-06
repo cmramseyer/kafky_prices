@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_05_120000) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_05_130000) do
+  create_table "outbox_events", force: :cascade do |t|
+    t.bigint "aggregate_id", null: false
+    t.string "aggregate_type", null: false
+    t.datetime "created_at", null: false
+    t.string "event_id", null: false
+    t.string "event_type", null: false
+    t.json "payload", null: false
+    t.datetime "published_at"
+    t.datetime "updated_at", null: false
+    t.index ["aggregate_type", "aggregate_id"], name: "index_outbox_events_on_aggregate_type_and_aggregate_id"
+    t.index ["event_id"], name: "index_outbox_events_on_event_id", unique: true
+    t.index ["published_at"], name: "index_outbox_events_on_published_at"
+  end
+
   create_table "pricing_products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "prd_category", null: false
