@@ -1,0 +1,45 @@
+<% content_for :title, "Pricing products" %>
+
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Catalog administration</p>
+    <h1>Pricing products</h1>
+  </div>
+  <%= link_to "New product", new_pricing_product_path, class: "button" %>
+</section>
+
+<% if @pricing_products.any? %>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>SKU</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th><span class="sr-only">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pricing_products.each do |pricing_product| %>
+          <tr>
+            <td><%= pricing_product.sku %></td>
+            <td><%= pricing_product.product_desc %></td>
+            <td><%= pricing_product.prd_category %></td>
+            <td><%= number_with_precision(pricing_product.prd_price, precision: 2) %></td>
+            <td class="row-actions">
+              <%= link_to "View", pricing_product %>
+              <%= link_to "Edit", edit_pricing_product_path(pricing_product) %>
+              <%= button_to "Delete", pricing_product, method: :delete, class: "link-button", form: { data: { turbo_confirm: "Delete this product?" } } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <section class="empty-state">
+    <h2>No products yet</h2>
+    <p>Create the first product to start the pricing catalog.</p>
+  </section>
+<% end %>

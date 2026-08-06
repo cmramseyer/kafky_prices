@@ -8,3 +8,37 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+:root { background: #f8fafc; color: #1f2937; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.site-header { background: #182235; padding: 1rem max(1.5rem, calc((100vw - 70rem) / 2)); }
+.site-name { color: #f8fafc; font-weight: 700; text-decoration: none; }
+.page { margin: 0 auto; max-width: 70rem; padding: 2.5rem 1.5rem; }
+.page-header, .header-actions, .row-actions, .actions { align-items: center; display: flex; gap: 0.75rem; }
+.page-header { justify-content: space-between; margin-bottom: 2rem; }
+.page-header h1 { margin: 0; }
+.eyebrow { color: #64748b; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; margin: 0 0 0.35rem; text-transform: uppercase; }
+.button, input[type="submit"] { background: #1d4ed8; border: 0; border-radius: 0.375rem; color: #fff; cursor: pointer; display: inline-block; font: inherit; padding: 0.6rem 0.9rem; text-decoration: none; }
+.button.secondary { background: #e2e8f0; color: #1e293b; }
+.table-wrap, .product-form, .product-details, .empty-state { background: #fff; border: 1px solid #dbe3ee; border-radius: 0.5rem; overflow: hidden; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border-bottom: 1px solid #e2e8f0; padding: 0.85rem 1rem; text-align: left; vertical-align: top; }
+th { color: #475569; font-size: 0.8rem; text-transform: uppercase; }
+tr:last-child td { border-bottom: 0; }
+.row-actions { white-space: nowrap; }
+.row-actions a, .link-button { color: #1d4ed8; }
+.link-button { background: none; border: 0; cursor: pointer; font: inherit; padding: 0; text-decoration: underline; }
+.product-form { max-width: 42rem; padding: 1.5rem; }
+.field { display: grid; gap: 0.4rem; margin-bottom: 1rem; }
+input, textarea { border: 1px solid #94a3b8; border-radius: 0.25rem; font: inherit; padding: 0.55rem; }
+.errors { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; margin-bottom: 1rem; padding: 1rem; }
+.errors h2 { font-size: 1rem; margin-top: 0; }
+.product-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.product-details div { padding: 1rem; }
+dt { color: #64748b; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+dd { margin: 0.35rem 0 0; }
+.empty-state { padding: 2rem; text-align: center; }
+.flash { background: #dcfce7; border: 1px solid #86efac; color: #166534; margin: 0 0 1.5rem; padding: 0.75rem; }
+.sr-only { height: 1px; margin: -1px; overflow: hidden; position: absolute; width: 1px; }
+@media (max-width: 600px) { .page-header, .row-actions { align-items: flex-start; flex-direction: column; } th:nth-child(3), td:nth-child(3) { display: none; } }

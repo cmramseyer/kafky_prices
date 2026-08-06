@@ -1,0 +1,11 @@
+<% content_for :title, "New pricing product" %>
+
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Catalog administration</p>
+    <h1>New product</h1>
+  </div>
+  <%= link_to "Back", pricing_products_path, class: "button secondary" %>
+</section>
+
+<%= render "form", pricing_product: @pricing_product %>

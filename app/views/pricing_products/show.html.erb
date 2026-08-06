@@ -1,0 +1,23 @@
+<% content_for :title, @pricing_product.sku %>
+
+<section class="page-header">
+  <div>
+    <p class="eyebrow"><%= @pricing_product.prd_category %></p>
+    <h1><%= @pricing_product.product_desc %></h1>
+  </div>
+  <div class="header-actions">
+    <%= link_to "Edit", edit_pricing_product_path(@pricing_product), class: "button" %>
+    <%= link_to "Back", pricing_products_path, class: "button secondary" %>
+  </div>
+</section>
+
+<dl class="product-details">
+  <div>
+    <dt>SKU</dt>
+    <dd><%= @pricing_product.sku %></dd>
+  </div>
+  <div>
+    <dt>Price</dt>
+    <dd><%= number_with_precision(@pricing_product.prd_price, precision: 2) %></dd>
+  </div>
+</dl>

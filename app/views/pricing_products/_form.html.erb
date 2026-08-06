@@ -1,0 +1,36 @@
+<%= form_with model: pricing_product, class: "product-form" do |form| %>
+  <% if pricing_product.errors.any? %>
+    <section class="errors" aria-labelledby="error-heading">
+      <h2 id="error-heading"><%= pluralize(pricing_product.errors.count, "error") %> prevented this product from being saved:</h2>
+      <ul>
+        <% pricing_product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sku %>
+    <%= form.text_field :sku, autocomplete: "off", required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_desc, "Description" %>
+    <%= form.text_area :product_desc, rows: 4, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prd_price, "Price" %>
+    <%= form.number_field :prd_price, min: 0, step: 0.01, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prd_category, "Category" %>
+    <%= form.text_field :prd_category, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
